@@ -3,27 +3,48 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB143AF023BC1E6A000CD96C /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB143AEF23BC1E6A000CD96C /* Command.swift */; };
+		DB143AF223BC21B2000CD96C /* CircleButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB143AF123BC21B2000CD96C /* CircleButtonModel.swift */; };
+		DB143AF423BC2F2A000CD96C /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB143AF323BC2F2A000CD96C /* PillButton.swift */; };
 		DB456AB523BC013D00E67F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB456AB423BC013D00E67F1F /* AppDelegate.swift */; };
 		DB456AB723BC013D00E67F1F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB456AB623BC013D00E67F1F /* SceneDelegate.swift */; };
-		DB456AB923BC013D00E67F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB456AB823BC013D00E67F1F /* ContentView.swift */; };
 		DB456ABB23BC014000E67F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB456ABA23BC014000E67F1F /* Assets.xcassets */; };
 		DB456ABE23BC014000E67F1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB456ABD23BC014000E67F1F /* Preview Assets.xcassets */; };
 		DB456AC123BC014000E67F1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB456ABF23BC014000E67F1F /* LaunchScreen.storyboard */; };
+		DB456ACA23BC017200E67F1F /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB456AC923BC017200E67F1F /* Bill.swift */; };
+		DB456ACD23BC07A300E67F1F /* Burritos in Frameworks */ = {isa = PBXBuildFile; productRef = DB456ACC23BC07A300E67F1F /* Burritos */; };
+		DB456AD023BC08D600E67F1F /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB456ACF23BC08D600E67F1F /* CircleButton.swift */; };
+		DB456AD223BC09E500E67F1F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB456AD123BC09E500E67F1F /* Colors.swift */; };
+		DB456AD423BC103500E67F1F /* Keypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB456AD323BC103500E67F1F /* Keypad.swift */; };
+		DB53481C23BC5CA6009A5738 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53481B23BC5CA6009A5738 /* Storage.swift */; };
+		DB53481E23BC62AB009A5738 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53481D23BC62AB009A5738 /* Header.swift */; };
+		DB53482023BC62B8009A5738 /* Tipsy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53481F23BC62B8009A5738 /* Tipsy.swift */; };
+		DB53482223BD0BD5009A5738 /* TouchGestureViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB53482123BD0BD5009A5738 /* TouchGestureViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB143AEF23BC1E6A000CD96C /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		DB143AF123BC21B2000CD96C /* CircleButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonModel.swift; sourceTree = "<group>"; };
+		DB143AF323BC2F2A000CD96C /* PillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		DB456AB123BC013D00E67F1F /* Tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB456AB423BC013D00E67F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB456AB623BC013D00E67F1F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB456AB823BC013D00E67F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DB456ABA23BC014000E67F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB456ABD23BC014000E67F1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DB456AC023BC014000E67F1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB456AC223BC014000E67F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB456AC923BC017200E67F1F /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		DB456ACF23BC08D600E67F1F /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		DB456AD123BC09E500E67F1F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DB456AD323BC103500E67F1F /* Keypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keypad.swift; sourceTree = "<group>"; };
+		DB53481B23BC5CA6009A5738 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		DB53481D23BC62AB009A5738 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		DB53481F23BC62B8009A5738 /* Tipsy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipsy.swift; sourceTree = "<group>"; };
+		DB53482123BD0BD5009A5738 /* TouchGestureViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchGestureViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB456ACD23BC07A300E67F1F /* Burritos in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +78,11 @@
 		DB456AB323BC013D00E67F1F /* Tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				DB53481A23BC5C9A009A5738 /* Utilities */,
+				DB456AC823BC015700E67F1F /* Models */,
+				DB456ACE23BC08BC00E67F1F /* Views */,
 				DB456AB423BC013D00E67F1F /* AppDelegate.swift */,
 				DB456AB623BC013D00E67F1F /* SceneDelegate.swift */,
-				DB456AB823BC013D00E67F1F /* ContentView.swift */,
 				DB456ABA23BC014000E67F1F /* Assets.xcassets */,
 				DB456ABF23BC014000E67F1F /* LaunchScreen.storyboard */,
 				DB456AC223BC014000E67F1F /* Info.plist */,
@@ -73,6 +97,38 @@
 				DB456ABD23BC014000E67F1F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DB456AC823BC015700E67F1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB143AEF23BC1E6A000CD96C /* Command.swift */,
+				DB456AD123BC09E500E67F1F /* Colors.swift */,
+				DB456AC923BC017200E67F1F /* Bill.swift */,
+				DB143AF123BC21B2000CD96C /* CircleButtonModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DB456ACE23BC08BC00E67F1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB456ACF23BC08D600E67F1F /* CircleButton.swift */,
+				DB456AD323BC103500E67F1F /* Keypad.swift */,
+				DB143AF323BC2F2A000CD96C /* PillButton.swift */,
+				DB53481D23BC62AB009A5738 /* Header.swift */,
+				DB53481F23BC62B8009A5738 /* Tipsy.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DB53481A23BC5C9A009A5738 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DB53481B23BC5CA6009A5738 /* Storage.swift */,
+				DB53482123BD0BD5009A5738 /* TouchGestureViewModifier.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +147,9 @@
 			dependencies = (
 			);
 			name = Tipsy;
+			packageProductDependencies = (
+				DB456ACC23BC07A300E67F1F /* Burritos */,
+			);
 			productName = Tipsy;
 			productReference = DB456AB123BC013D00E67F1F /* Tipsy.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +178,9 @@
 				Base,
 			);
 			mainGroup = DB456AA823BC013D00E67F1F;
+			packageReferences = (
+				DB456ACB23BC07A300E67F1F /* XCRemoteSwiftPackageReference "Burritos" */,
+			);
 			productRefGroup = DB456AB223BC013D00E67F1F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,9 +208,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB456AD023BC08D600E67F1F /* CircleButton.swift in Sources */,
+				DB143AF223BC21B2000CD96C /* CircleButtonModel.swift in Sources */,
+				DB53482223BD0BD5009A5738 /* TouchGestureViewModifier.swift in Sources */,
+				DB456AD223BC09E500E67F1F /* Colors.swift in Sources */,
+				DB143AF423BC2F2A000CD96C /* PillButton.swift in Sources */,
+				DB456ACA23BC017200E67F1F /* Bill.swift in Sources */,
+				DB53481E23BC62AB009A5738 /* Header.swift in Sources */,
 				DB456AB523BC013D00E67F1F /* AppDelegate.swift in Sources */,
+				DB456AD423BC103500E67F1F /* Keypad.swift in Sources */,
 				DB456AB723BC013D00E67F1F /* SceneDelegate.swift in Sources */,
-				DB456AB923BC013D00E67F1F /* ContentView.swift in Sources */,
+				DB143AF023BC1E6A000CD96C /* Command.swift in Sources */,
+				DB53481C23BC5CA6009A5738 /* Storage.swift in Sources */,
+				DB53482023BC62B8009A5738 /* Tipsy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +357,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Tipsy/Preview Content\"";
 				DEVELOPMENT_TEAM = 647GR2UNM5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Tipsy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +370,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.malstrom.Tipsy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,10 +379,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Tipsy/Preview Content\"";
 				DEVELOPMENT_TEAM = 647GR2UNM5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Tipsy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,7 +392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.malstrom.Tipsy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -342,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB456ACB23BC07A300E67F1F /* XCRemoteSwiftPackageReference "Burritos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guillermomuntaner/Burritos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB456ACC23BC07A300E67F1F /* Burritos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB456ACB23BC07A300E67F1F /* XCRemoteSwiftPackageReference "Burritos" */;
+			productName = Burritos;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB456AA923BC013D00E67F1F /* Project object */;
 }
