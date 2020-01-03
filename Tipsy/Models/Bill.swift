@@ -2,33 +2,49 @@ import Foundation
 import Combine
 
 class Bill: ObservableObject {
-    class Tip: ObservableObject {
-        @Published var percentage: Double = 0.18
-        @Published var people: Int = 1
-    }
+    private let formatter: NumberFormatter = {
+        let f = NumberFormatter()
+        f.numberStyle = .currency
+        return f
+    }()
     
-    @Published var subtotal: Double = 0.0
-    @Published var tip = Tip()
-    
-    private var anyCancellable: AnyCancellable? = nil
-    
-    init() {
-        anyCancellable = tip.objectWillChange.sink { (_) in
-            self.objectWillChange.send()
+    @Clamping(range: 0...9_999_999) var subtotal: Double = 0.0 {
+        didSet {
+            publishedSubtotal = subtotal
         }
     }
     
-    var tipAmount: Double { round(subtotal * tip.percentage) }
+    @Clamping(range: 0...1) var percentage: Double = 0.18 {
+        didSet {
+            publishedPercentage = percentage
+        }
+    }
+    
+    @Clamping(range: 0...50) var people: Int = 1 {
+        didSet {
+            publishedPeople = people
+        }
+    }
+    
+    // These @Published properties are necessary for the ObservableObject to update the UI when
+    // these values change.
+    //
+    // I'm open to better architecture ideas for doing this.
+    @Published private var publishedSubtotal: Double = 0.0
+    @Published private var publishedPercentage: Double = 0.18
+    @Published private var publishedPeople: Int = 1
+    
+    var tipAmount: Double { round(subtotal * percentage) }
     var total: Double { subtotal + tipAmount }
-    var totalPerPerson: Double { round(total / Double(tip.people)) }
+    var totalPerPerson: Double { round(total / Double(people)) }
     
     var formattedSubtotal: String {
-        String(format: "$%.2f", Double(subtotal))
+        formatter.string(from: NSNumber(value: subtotal)) ?? ""
     }
     
     var wholeTipPercentage: Int {
-        get { return Int(tip.percentage * 100) }
-        set { tip.percentage = Double(newValue) / 100 }
+        get { return Int(percentage * 100) }
+        set { percentage = Double(newValue) / 100 }
     }
     
     var formattedTipPercentage: String {
@@ -36,15 +52,15 @@ class Bill: ObservableObject {
     }
     
     var formattedTipAmount: String {
-        String(format: "$%.2f", tipAmount)
+        formatter.string(from: NSNumber(value: tipAmount)) ?? ""
     }
     
     var formattedTotal: String {
-        String(format: "$%.2f", total)
+        formatter.string(from: NSNumber(value: total)) ?? ""
     }
     
     var formattedTotalPerPerson: String {
-        String(format: "$%.2f", totalPerPerson)
+        formatter.string(from: NSNumber(value: totalPerPerson)) ?? ""
     }
     
     // TODO: Clean up duplicate rounding logic
@@ -65,13 +81,13 @@ class Bill: ObservableObject {
         // FIXME: This only rounds $12.87 to $13.00 and $13.00 to $20.00
         // I expect this to round $20 up to $100 and $100 up to $1000 one more time before doing nothing
         if total.truncatingRemainder(dividingBy: 1) == 0 {
-            tip.percentage = calculateTipPercentage(from: rounding(total, to: 10.0, up: up))
+            percentage = calculateTipPercentage(from: rounding(total, to: 10.0, up: up))
         } else if total.truncatingRemainder(dividingBy: 10) == 0 {
-            tip.percentage = calculateTipPercentage(from: rounding(total, to: 100.0, up: up))
-        } else if total > 1_000 {
+            percentage = calculateTipPercentage(from: rounding(total, to: 100.0, up: up))
+        } else if total > 1_000_000 {
             // Do nothing
         } else {
-            tip.percentage = calculateTipPercentage(from: up ? ceil(total) : floor(total))
+            percentage = calculateTipPercentage(from: up ? ceil(total) : floor(total))
         }
     }
     
@@ -79,8 +95,8 @@ class Bill: ObservableObject {
     func roundDown() { round(up: false) }
     
     func clearSubtotal() { subtotal = 0 }
-    func clearPercentage(defaultTipPercentage: Double) { tip.percentage = defaultTipPercentage }
-    func clearPeople() { tip.people = 1 }
+    func clearPercentage(defaultTipPercentage: Double = 0.18) { percentage = defaultTipPercentage }
+    func clearPeople() { people = 1 }
     
     func clearAll(defaultTipPercentage: Double) {
         clearSubtotal()
@@ -92,13 +108,13 @@ class Bill: ObservableObject {
 extension Bill: Equatable, Hashable {
     static func == (lhs: Bill, rhs: Bill) -> Bool {
         lhs.subtotal == rhs.subtotal &&
-        lhs.tip.people == rhs.tip.people &&
-        lhs.tip.percentage == rhs.tip.percentage
+        lhs.people == rhs.people &&
+        lhs.percentage == rhs.percentage
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(subtotal)
-        hasher.combine(tip.people)
-        hasher.combine(tip.percentage)
+        hasher.combine(people)
+        hasher.combine(percentage)
     }
 }

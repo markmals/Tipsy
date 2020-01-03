@@ -3,11 +3,12 @@ import Combine
 
 struct Keypad: View {
     @EnvironmentObject private var bill: Bill
-    @Binding var field: Header.Field
+    @Binding var activeField: Header.Field
+    
     @State var dotWasHit: Bool = false
     
-    @State var wholeNumbers = [Int]()
-    @State var decimalNumbers = [Int]()
+    @State private var wholeNumbers = [Int]()
+    @State private var decimalNumbers = [Int]()
     
     let defaultTipPercentage: Double = 0.18
     
@@ -20,7 +21,7 @@ struct Keypad: View {
     private func buttonAction(_ command: Command) {
         switch command {
         case .number(let amount):
-            switch self.field {
+            switch activeField {
             case .subtotal:
                 if dotWasHit {
                     if decimalNumbers.count >= 2 {
@@ -35,21 +36,21 @@ struct Keypad: View {
                 
                 bill.subtotal = Double("\(wholeNumbers.map(String.init).joined()).\(decimalNumbers.map(String.init).joined())")!
             case .tipPercentage:
-                if bill.wholeTipPercentage > 9 {
+                if "\(bill.wholeTipPercentage)".count >= 2 {
                     bill.wholeTipPercentage = amount
                 } else {
                     bill.wholeTipPercentage = Int("\(bill.wholeTipPercentage)\(amount)")!
                 }
             case .peopleSplit:
-                if amount == 0 {
-                    bill.tip.people = 1
+                if bill.people >= 50 || bill.people == 1 {
+                    bill.people = amount
                 } else {
-                    bill.tip.people = amount
+                    bill.people = Int("\(bill.people)\(amount)")!
                 }
             }
         case .dot: self.dotWasHit = !self.dotWasHit
         case .clear:
-            switch self.field {
+            switch activeField {
             case .subtotal:
                 self.bill.clearSubtotal()
                 self.clearSubtotalState()

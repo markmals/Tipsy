@@ -64,7 +64,7 @@ struct Header: View {
     private func peopleSplitButton(width: CGFloat) -> some View {
         PillButton(
             label: "People",
-            sublabel: String(bill.tip.people),
+            sublabel: String(bill.people),
             screenWidth: width,
             isActive: $peopleSplitIsActive,
             action: {
@@ -76,7 +76,7 @@ struct Header: View {
         let color = Color.primarySemiOpaque
         
         return Group {
-            if bill.tip.people > 1 {
+            if bill.people > 1 {
                 HStack {
                     Text("\(self.bill.formattedTotalPerPerson)")
                         .font(.system(size: 20, weight: .semibold, design: .rounded))

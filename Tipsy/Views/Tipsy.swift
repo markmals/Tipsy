@@ -8,7 +8,7 @@ struct Tipsy: View {
             Color.background.edgesIgnoringSafeArea(.all)
             VStack {
                 Header(activeField: self.$selectedField)
-                Keypad(field: self.$selectedField)
+                Keypad(activeField: self.$selectedField)
             }
         }
     }
