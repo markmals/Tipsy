@@ -1,24 +1,13 @@
 import SwiftUI
-import CoreHaptics
+import UIKit
 
 struct CircleButton: View {
     let screenWidth: CGFloat
     let spacing: CGFloat
     let model: Model
     
-    // FIXME: Implement this properly so tapping each button produces a short virbation
-    func generateHapticFeedback() {
-        let engine = try! CHHapticEngine()
-        try! engine.start()
-
-        let hapticEvent = CHHapticEvent(eventType: .hapticTransient, parameters: [
-            CHHapticEventParameter(parameterID: .hapticSharpness, value: 20), CHHapticEventParameter(parameterID: .hapticIntensity, value: 20),
-        ], relativeTime: 0)
-
-        let pattern = try! CHHapticPattern(events: [hapticEvent], parameters: [])
-        let hapticPlayer = try! engine.makePlayer(with: pattern)
-        try! hapticPlayer.start(atTime: CHHapticTimeImmediate)
-    }
+    // FIXME: Implement this using CoreHaptics to remove the UIKit dependency
+    private let feedback = UIImpactFeedbackGenerator(style: .medium)
     
     var symbol: some View {
         Group {
@@ -33,7 +22,10 @@ struct CircleButton: View {
     }
     
     var body: some View {
-        Button(action: model.action) {
+        Button(action: {
+            self.feedback.impactOccurred()
+            self.model.action()
+        }) {
             symbol
         }.buttonStyle(
             Style(
@@ -41,7 +33,7 @@ struct CircleButton: View {
                 spacing: spacing,
                 model: model
             )
-        )// .onTouchGesture(touchBegan: generateHapticFeedback)
+        )
     }
 }
 
@@ -85,6 +77,7 @@ extension CircleButton {
                 .frame(width: frame.width, height: frame.height)
                 .background(configuration.isPressed ? model.backgroundPressed : model.background)
                 .cornerRadius(.infinity)
+                .scaleEffect(configuration.isPressed ? 0.9 : 1)
         }
     }
 }
